@@ -1,0 +1,61 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container {
+    width: 800px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.inventory-table table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+    
+.inventory-table td, .inventory-table th{ 
+    border: 1px solid wheat;
+    padding: 8px;
+}
+
+.inventory-table tr:nth-child(even) {
+    background-color: wheat;
+}
+
+.inventory-table tr:hover {
+    background-color: wheat;
+}
+
+.inventory-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: red;
+    color: white;
+}
+
+.button-1 {
+    border: 1px solid whitesmoke;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    font-size: 14pt;
+}
+
+.input-item {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display:inline-block; 
+    vertical-align:middle;
+    margin-left:20px;
+}
+
+.quantity-box {
+    text-align: center;
+}
+
+.price-data {
+    text-align: right;
+}

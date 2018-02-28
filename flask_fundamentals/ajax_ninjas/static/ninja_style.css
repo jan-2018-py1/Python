@@ -1,0 +1,17 @@
+#wrapper {
+    width: 600px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+#image {
+    width: 600px;
+    height: 700px;
+    text-align: center;
+}
+
+#ninja-img {
+    width: 400px;
+    height: 500px;
+    text-align: center;
+}

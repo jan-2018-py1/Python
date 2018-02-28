@@ -1,0 +1,38 @@
+#container {
+    width: 400px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+#messages {
+    margin: 20px;
+    color: white;
+    background-color: red;
+    font-weight: 150;
+}
+
+#form {
+    padding: 10px;
+    width: 275px;
+    display: inline-block;
+    border: 1px solid black;
+    text-align: left;
+}
+
+.form-item {
+    margin: 5px;
+}
+
+.button {
+    padding: 5px;
+    margin: 10px 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+}
+
+#info-block {
+    border: 1px solid black;
+}

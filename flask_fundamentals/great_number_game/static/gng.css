@@ -1,0 +1,32 @@
+.container {
+    width: 600px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.guess_form {
+    margin: 20px 0px;
+}
+
+.green_box {
+    margin:20px 0px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border: 1px solid black;
+    height: 200px;
+    width: 200px;
+    background-color: green;
+
+}
+
+.red_box {
+    margin:20px 0px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border: 1px solid black;
+    height: 200px;
+    width: 200px;
+    background-color: red;
+}

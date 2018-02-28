@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users Show</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'crud/css/styles.css' %}">
+</head>
+<body>
+    <div id="container">
+        <h1>User {{ get_user.id }}</h1>
+        <p>Full Name: {{ get_user.first_name }} {{ get_user.last_name }} </p>
+        <p>Email: {{ get_user.email }}</p>
+        <p>Created at: {{ get_user.created_at }}</p>
+        <p><a href="/users/{{ get_user.id }}/edit">Edit</a>  |  <a href="/users/{{ get_user.id }}/destroy">Delete</a>  |  <a href="/users">Go Back</a></p>
+    </div>
+</body>
+</html>

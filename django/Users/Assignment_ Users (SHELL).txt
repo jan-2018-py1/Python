@@ -1,0 +1,148 @@
+﻿Last login: Fri Feb 23 20:02:34 on ttys000
+Jonathans-MacBook-Air:~ jonathan$ cd Documents/python_stack/django/Users/
+Jonathans-MacBook-Air:Users jonathan$ python manage.py makemigrations
+You are trying to add a non-nullable field 'age' to user without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> 0
+Migrations for 'user_login':
+  apps/user_login/migrations/0002_user_age.py
+    - Add field age to user
+Jonathans-MacBook-Air:Users jonathan$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, user_login
+Running migrations:
+  Applying user_login.0002_user_age... OK
+Jonathans-MacBook-Air:Users jonathan$ python manage.py shell
+Python 2.7.14 (v2.7.14:84471935ed, Sep 16 2017, 12:01:12) 
+Type "copyright", "credits" or "license" for more information.
+
+
+IPython 5.5.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+
+In [1]: from apps.user_login.models import *
+
+
+In [2]: User.objects.create(first_name="Jonathan", last_name="Ayala Colon", emai
+   ...: l_address="jonhy.ayala90@gmail.com", age=28)
+Out[2]: <User: User object>
+
+
+In [3]: User.objects.create(first_name="Vania", last_name="Ayala Colon", email_a
+   ...: ddress="vanala.co@gmail.com", age=26)
+Out[3]: <User: User object>
+
+
+In [4]: User.objects.create(first_name="Yolanda", last_name="Colon Gonzalez", em
+   ...: ail_address="yollie.mom@gmail.com", age=59)
+Out[4]: <User: User object>
+
+
+In [5]: User.objects.create(first_name="Jose Antonio", last_name="Ayala Mendez",
+   ...:  email_address="drantonio_ayalam@yahoo.com.mx", age=58)
+Out[5]: <User: User object>
+
+
+In [6]: User.onjects.all()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-6-f468af27796a> in <module>()
+----> 1 User.onjects.all()
+
+
+AttributeError: type object 'User' has no attribute 'onjects'
+
+
+In [7]: User.objects.all()
+Out[7]: <QuerySet [<User: User object>, <User: User object>, <User: User object>, <User: User object>]>
+
+
+In [8]: User.objects.last()
+Out[8]: <User: User object>
+
+
+In [9]: User.objects.first()
+Out[9]: <User: User object>
+
+
+In [10]: User.objects.ordered_by('-first_name')
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-10-6caceb3e8cdd> in <module>()
+----> 1 User.objects.ordered_by('-first_name')
+
+
+AttributeError: 'Manager' object has no attribute 'ordered_by'
+
+
+In [11]: User.objects.order_by('-first_name')
+Out[11]: <QuerySet [<User: User object>, <User: User object>, <User: User object>, <User: User object>]>
+
+
+In [12]: User.objects.order_by('-first_name').values()
+Out[12]: <QuerySet [{'first_name': u'Yolanda', 'last_name': u'Colon Gonzalez', 'created_at': datetime.datetime(2018, 2, 24, 2, 24, 39, 163696, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 24, 2, 24, 39, 163784, tzinfo=<UTC>), u'id': 3, 'email_address': u'yollie.mom@gmail.com', 'age': 59}, {'first_name': u'Vania', 'last_name': u'Ayala Colon', 'created_at': datetime.datetime(2018, 2, 24, 2, 23, 45, 784355, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 24, 2, 23, 45, 784414, tzinfo=<UTC>), u'id': 2, 'email_address': u'vanala.co@gmail.com', 'age': 26}, {'first_name': u'Jose Antonio', 'last_name': u'Ayala Mendez', 'created_at': datetime.datetime(2018, 2, 24, 2, 25, 19, 715565, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 24, 2, 25, 19, 715622, tzinfo=<UTC>), u'id': 4, 'email_address': u'drantonio_ayalam@yahoo.com.mx', 'age': 58}, {'first_name': u'Jonathan', 'last_name': u'Ayala Colon', 'created_at': datetime.datetime(2018, 2, 24, 2, 23, 9, 231195, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 24, 2, 23, 9, 231301, tzinfo=<UTC>), u'id': 1, 'email_address': u'jonhy.ayala90@gmail.com', 'age': 28}]>
+
+
+In [13]: a = User.objects.get(id=3)
+
+
+In [14]: a = User.objects.get(id=3).value
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-14-7e4ec000824c> in <module>()
+----> 1 a = User.objects.get(id=3).value
+
+
+AttributeError: 'User' object has no attribute 'value'
+
+
+In [15]: a = User.objects.get(id=3).value()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-15-8509bebe1662> in <module>()
+----> 1 a = User.objects.get(id=3).value()
+
+
+AttributeError: 'User' object has no attribute 'value'
+
+
+In [16]: a = User.objects.get(id=3)
+
+
+In [17]: a.last_name = "Popo"
+
+
+In [18]: a.save
+Out[18]: <bound method User.save of <User: User object>>
+
+
+In [19]: a.save()
+
+
+In [20]: User.objects.order_by('-first_name').values()
+Out[20]: <QuerySet [{'first_name': u'Yolanda', 'last_name': u'Popo', 'created_at': datetime.datetime(2018, 2, 24, 2, 24, 39, 163696, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 24, 2, 39, 57, 857435, tzinfo=<UTC>), u'id': 3, 'email_address': u'yollie.mom@gmail.com', 'age': 59}, {'first_name': u'Vania', 'last_name': u'Ayala Colon', 'created_at': datetime.datetime(2018, 2, 24, 2, 23, 45, 784355, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 24, 2, 23, 45, 784414, tzinfo=<UTC>), u'id': 2, 'email_address': u'vanala.co@gmail.com', 'age': 26}, {'first_name': u'Jose Antonio', 'last_name': u'Ayala Mendez', 'created_at': datetime.datetime(2018, 2, 24, 2, 25, 19, 715565, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 24, 2, 25, 19, 715622, tzinfo=<UTC>), u'id': 4, 'email_address': u'drantonio_ayalam@yahoo.com.mx', 'age': 58}, {'first_name': u'Jonathan', 'last_name': u'Ayala Colon', 'created_at': datetime.datetime(2018, 2, 24, 2, 23, 9, 231195, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 24, 2, 23, 9, 231301, tzinfo=<UTC>), u'id': 1, 'email_address': u'jonhy.ayala90@gmail.com', 'age': 28}]>
+
+
+In [21]: a = User.objects.get(id=4)
+
+
+In [22]: a.delete()
+Out[22]: (1, {u'user_login.User': 1})
+
+
+In [23]: User.objects.order_by('-first_name').values()
+Out[23]: <QuerySet [{'first_name': u'Yolanda', 'last_name': u'Popo', 'created_at': datetime.datetime(2018, 2, 24, 2, 24, 39, 163696, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 24, 2, 39, 57, 857435, tzinfo=<UTC>), u'id': 3, 'email_address': u'yollie.mom@gmail.com', 'age': 59}, {'first_name': u'Vania', 'last_name': u'Ayala Colon', 'created_at': datetime.datetime(2018, 2, 24, 2, 23, 45, 784355, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 24, 2, 23, 45, 784414, tzinfo=<UTC>), u'id': 2, 'email_address': u'vanala.co@gmail.com', 'age': 26}, {'first_name': u'Jonathan', 'last_name': u'Ayala Colon', 'created_at': datetime.datetime(2018, 2, 24, 2, 23, 9, 231195, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 24, 2, 23, 9, 231301, tzinfo=<UTC>), u'id': 1, 'email_address': u'jonhy.ayala90@gmail.com', 'age': 28}]>
+
+
+In [24]: 
+o.

@@ -1,0 +1,58 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container {
+    width: 500px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #d41414;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #941313;
+}
+
+.messages-error {
+    margin: 20px;
+    color: white;
+    background-color: rgb(37, 11, 11);
+    font-weight: 150;
+}
+
+.messages-success {
+    margin: 20px;
+    color: white;
+    background-color: rgb(15, 77, 15);
+    font-weight: 200;
+}
+
+#my-form {
+    display: inline-block;
+
+}
+
+.label-item {
+    display: inline-block;
+    padding-top: 5px;
+    text-align: right;
+    width: 140px;
+}
+
+.input-item {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block; 
+    vertical-align: middle;
+    margin-left: 20px;
+}

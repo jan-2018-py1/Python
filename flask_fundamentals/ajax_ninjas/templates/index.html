@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>AJAX Ninjas</title>
+        <meta charset="UTF-8">
+        <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <script src= "{{ url_for('static', filename='script.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='ninja_style.css') }}">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="image"></div>
+            <button class="ninja-button" value="red">Red</button>
+            <button class="ninja-button" value="blue">Blue</button>
+            <button class="ninja-button" value="orange">Orange</button>
+            <button class="ninja-button" value="purple">Purple</button>
+            <p>Or choose a custom color:</p>
+            <input id="input-item" type='text' name='custom-color' placeholder="Enter color...">
+            <button id="enter-button">Enter</button>
+        </div>
+    </body>
+</html>

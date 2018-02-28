@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Random Word Generator</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'random_word/css/random_word.css' %}" media-"screen" title="no title" charset="utf-8">
+    </head>
+    <body>
+        <div id="container">
+            <h2>Random Word (Attempt # {{ request.session.count }})</h2>
+            <div class="word_box">
+                {{ random_word }}
+            </div>
+            <div class="button_box">
+                <a class="my_button left-button" href="{ url '/generate' }">Generate</a>
+                <a class="my_button right-button" href="{ url '/reset' }">Reset</a>
+            </div>
+        </div>
+    </body>
+</html>

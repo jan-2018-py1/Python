@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ninja Gold</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='ninja_gold_style.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Ninja Gold</h1>
+            <div class="chest">
+                <p>Your Gold:</p>
+                <p class="gold_box">{{ session['gold']}}</p>
+            </div>
+            <div class="locations">
+                <div class="location_box">
+                    <h3>Farm</h3>
+                    <h6>(earn 10-20 gold pieces)</h6>
+                    <form action='/process_money' method="POST">
+                        <input type="hidden" name="location" value="farm">
+                        <input type="submit" value="Visit Farm" class="submit_button">
+                    </form>
+                </div>
+                <div class="location_box">
+                    <h3>Cave</h3>
+                    <h6>(earn 5-10 gold pieces)</h6>
+                    <form action='/process_money' method="POST">
+                        <input type="hidden" name="location" value="cave">
+                        <input type="submit" value="Visit Cave" class="submit_button">
+                    </form>
+                </div>
+                <div class="location_box">
+                    <h3>House</h3>
+                    <h6>(earn 2-5 gold pieces)</h6>
+                    <form action='/process_money' method="POST">
+                        <input type="hidden" name="location" value="house">
+                        <input type="submit" value="Visit House" class="submit_button">
+                    </form>
+                </div>
+                <div class="location_box">
+                    <h3>Casino</h3>
+                    <h6>(earn or lose 0-50 gold pieces)</h6>
+                    <form action='/process_money' method="POST">
+                        <input type="hidden" name="location" value="casino">
+                        <input type="submit" value="Visit Casino" class="submit_button">
+                    </form>
+                </div>
+            </div>
+            <div class="activities">
+                <h4>Activity Log:</h4>
+                <div class="activity_box">
+                    {% for i in range(0, session['activity']|length) %}
+                        {% if session['sign'][i] == True %}
+                            <p class="log_true">{{ session['activity'][i] }}</p>
+                        {% endif %}
+
+                        {% if session['sign'][i] == False %}
+                            <p class="log_false">{{ session['activity'][i] }}</p>
+                        {% endif %}
+                    {% endfor%}
+                </div>
+                <form action='/reset' method="POST">
+                    Click to start game over
+                    <input type="submit" value="Reset" class="reset_button">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
